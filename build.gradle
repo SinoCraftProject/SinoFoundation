@@ -23,7 +23,6 @@ loom {
         dataGen {
             mod 'sinofoundation'
         }
-        mixinConfig "sinofoundation.mixins.json"
     }
 
     launches {
@@ -33,7 +32,18 @@ loom {
     }
 }
 
-version = '1.18.2-1.0.0'
+version = '1.18.2-2.0.0'
+if (System.getenv("JITPACK") == "true") {
+    version += "-${System.getenv("VERSION")}"
+}
+
+var release = false
+if (release || project.hasProperty("SINOSERIES_RELEASE")) {
+    version += '-release'
+} else {
+    version += '-dev'
+}
+
 group = 'games.moegirl.sinocraft.sinofoundation' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'sinofoundation'
 
@@ -43,6 +53,8 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 println('Java: ' + System.getProperty('java.version') +
         ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ')' +
         ' Arch: ' + System.getProperty('os.arch'))
+
+println("Building SinoCore. Ver: $version.")
 
 processResources {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
@@ -78,10 +90,12 @@ dependencies {
 
     mappings loom.layered() {
         officialMojangMappings()
-        parchment("org.parchmentmc.data:parchment-1.18.2:2022.05.22@zip")
+        parchment("org.parchmentmc.data:parchment-1.18.2:2022.08.07@zip")
     }
 
-    modImplementation 'com.github.SinoCraftProject:SinoCore:main-SNAPSHOT'
+    modImplementation('com.github.SinoCraftProject:SinoCore:dev-SNAPSHOT') {
+        changing = true
+    }
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
@@ -98,6 +112,7 @@ jar {
         ])
     }
 }
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
@@ -110,3 +125,21 @@ publishing {
         }
     }
 }
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
+
+import org.apache.tools.ant.filters.ReplaceTokens
+
+task injectString(type: Copy) {
+    from ('src/main/java') {
+        include '**/*.java'
+        filter(ReplaceTokens, tokens: [version: project.version])
+    }
+    into "${buildDir}/generated/java"
+}
+
+// qyl27: It only works with main.
+compileJava.source = "${buildDir}/generated/java"
+compileJava.dependsOn injectString
