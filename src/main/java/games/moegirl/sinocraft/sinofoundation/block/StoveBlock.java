@@ -4,8 +4,13 @@ import games.moegirl.sinocraft.sinocore.api.utility.shape.VoxelShapeHelper;
 import games.moegirl.sinocraft.sinofoundation.block.entity.StoveBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
@@ -85,6 +90,15 @@ public class StoveBlock extends HorizontalDirectionalBlock implements EntityBloc
         return super.getStateForPlacement(context)
                 .setValue(FACING, context.getHorizontalDirection().getOpposite())
                 .setValue(BURNING, false);
+    }
+
+    @Override
+    public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
+        super.stepOn(level, pos, state, entity);
+
+        if (!entity.fireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
+            entity.hurt(DamageSource.HOT_FLOOR, 0.5f);
+        }
     }
 
     @Override
