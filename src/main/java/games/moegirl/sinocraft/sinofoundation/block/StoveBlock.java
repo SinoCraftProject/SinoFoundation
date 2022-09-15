@@ -48,7 +48,7 @@ public class StoveBlock extends HorizontalDirectionalBlock implements EntityBloc
         var frontHolePartLeft = Shapes.or(frontHoleOccludePartLeft1, frontHoleOccludePartLeft2, frontHoleOccludePartLeft3);
         var frontHolePartRight = Shapes.or(frontHoleOccludePartRight1, frontHoleOccludePartRight2, frontHoleOccludePartRight3);
         var frontHolePartFull = Shapes.or(frontHolePartLeft, frontHolePartRight);
-        var frontHole = Shapes.join(frontHoleFull, frontHolePartFull, BooleanOp.ONLY_FIRST);
+        var frontHole = VoxelShapeHelper.rotateClockwise(Shapes.join(frontHoleFull, frontHolePartFull, BooleanOp.ONLY_FIRST));
 
         var fullBlock = Block.box(0, 0, 0, 16, 16, 16);
         var lastShape = Shapes.join(fullBlock, topHole, BooleanOp.ONLY_FIRST);
