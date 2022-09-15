@@ -11,7 +11,7 @@ public class SinoSeriesTab extends CreativeModeTab {
     public static final SinoSeriesTab BUILDING_BLOCKS = new SinoSeriesTab("building_blocks", null);
     public static final SinoSeriesTab FUNCTIONAL_BLOCKS = new SinoSeriesTab("functional_blocks", SFDBlockItems.STOVE);
     public static final SinoSeriesTab AGRICULTURE = new SinoSeriesTab("agriculture", null);
-    public static final SinoSeriesTab TOOLS = new SinoSeriesTab("tools", null);
+    public static final SinoSeriesTab TOOLS = new SinoSeriesTab("tools", SFDItems.DIAMOND_KNIFE);
     public static final SinoSeriesTab WEAPONS = new SinoSeriesTab("weapons", null);
     public static final SinoSeriesTab MISC = new SinoSeriesTab("misc", null);
 

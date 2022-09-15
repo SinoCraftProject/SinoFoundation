@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "functional_blocks",
+  "pattern": [
+    "BBB",
+    "BFB",
+    "BWB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:brick"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "sinofoundation:stove"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "sinofoundation:stove"
+    ]
+  },
+  "criteria": {
+    "got_brick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:brick"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "sinofoundation:stove"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "got_brick",
+      "has_the_recipe"
+    ]
+  ]
+}

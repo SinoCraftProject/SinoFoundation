@@ -1,3 +1,12 @@
 {
-  "block.sinofoundation.stove": "\u7076\u53F0"
+  "block.sinofoundation.stove": "\u7076\u53F0",
+  "item.sinofoundation.diamond_knife": "\u94BB\u77F3\u5C0F\u5200",
+  "item.sinofoundation.gold_knife": "\u91D1\u8D28\u5C0F\u5200",
+  "item.sinofoundation.iron_knife": "\u94C1\u5236\u5C0F\u5200",
+  "itemGroup.sinoseries_agriculture": "\u534E\u590F\u7CFB\u5217 | \u519C\u4E1A",
+  "itemGroup.sinoseries_building_blocks": "\u534E\u590F\u7CFB\u5217 | \u5EFA\u7B51\u65B9\u5757",
+  "itemGroup.sinoseries_functional_blocks": "\u534E\u590F\u7CFB\u5217 | \u529F\u80FD\u6027\u65B9\u5757",
+  "itemGroup.sinoseries_misc": "\u534E\u590F\u7CFB\u5217 | \u6742\u9879",
+  "itemGroup.sinoseries_tools": "\u534E\u590F\u7CFB\u5217 | \u5DE5\u5177",
+  "itemGroup.sinoseries_weapons": "\u534E\u590F\u7CFB\u5217 | \u6B66\u5668"
 }
