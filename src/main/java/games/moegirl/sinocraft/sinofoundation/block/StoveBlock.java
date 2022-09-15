@@ -96,8 +96,10 @@ public class StoveBlock extends HorizontalDirectionalBlock implements EntityBloc
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         super.stepOn(level, pos, state, entity);
 
-        if (!entity.fireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
-            entity.hurt(DamageSource.HOT_FLOOR, 0.5f);
+        if (state.getValue(BURNING)) {
+            if (!entity.fireImmune() && entity instanceof LivingEntity && !EnchantmentHelper.hasFrostWalker((LivingEntity) entity)) {
+                entity.hurt(DamageSource.HOT_FLOOR, 0.5f);
+            }
         }
     }
 

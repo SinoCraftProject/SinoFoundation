@@ -11,7 +11,7 @@ public class KnifeItem extends SwordItem {
 //    public final static List<KnifeItem> KNIVES = new ArrayList<>();
 
     public KnifeItem(Tier tier) {
-        super(tier, 2, -3.0f, new Item.Properties().tab(SinoSeriesTab.TOOLS));
+        super(tier, 1, -3, new Item.Properties().tab(SinoSeriesTab.TOOLS));
 //        KNIVES.add(this);
     }
 
