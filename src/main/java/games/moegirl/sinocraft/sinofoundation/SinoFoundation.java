@@ -15,14 +15,14 @@ public class SinoFoundation {
     public static final String NAME = "SinoFoundation";
     public static final String VERSION = "@version@";
 
-    private static SinoFoundation INSTANCE = null;
+    private static final Logger LOGGER = LogManager.getLogger(NAME);
 
-    private Logger logger = LogManager.getLogger(NAME);
+    private static SinoFoundation INSTANCE = null;
 
     public SinoFoundation() {
         INSTANCE = this;
 
-        logger.info("Loading SinoFoundation. Ver: " + VERSION);
+        LOGGER.info("Loading SinoFoundation. Ver: " + VERSION);
 
         var bus = FMLJavaModLoadingContext.get().getModEventBus();
         SFDBlocks.register(bus);
@@ -30,7 +30,7 @@ public class SinoFoundation {
         SFDItems.register(bus);
         SFDBlockEntities.register(bus);
 
-        logger.info("SinoFoundation loaded.");
+        LOGGER.info("SinoFoundation loaded.");
     }
 
     public static SinoFoundation getInstance() {
@@ -38,6 +38,6 @@ public class SinoFoundation {
     }
 
     public Logger getLogger() {
-        return logger;
+        return LOGGER;
     }
 }

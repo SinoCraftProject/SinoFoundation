@@ -9,9 +9,9 @@ import net.minecraftforge.client.model.generators.VariantBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.DeferredRegister;
 
-public class BlockStateProvider extends net.minecraftforge.client.model.generators.BlockStateProvider {
-    public BlockStateProvider(DataGenerator generator, String modId, ExistingFileHelper exHelper,
-                              DeferredRegister<? extends Block> deferredRegister) {
+public class SFDBlockStateProvider extends net.minecraftforge.client.model.generators.BlockStateProvider {
+    public SFDBlockStateProvider(DataGenerator generator, String modId, ExistingFileHelper exHelper,
+                                 DeferredRegister<? extends Block> deferredRegister) {
         super(generator, modId, exHelper);
     }
 

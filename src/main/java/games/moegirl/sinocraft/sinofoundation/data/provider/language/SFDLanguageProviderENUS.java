@@ -3,11 +3,10 @@ package games.moegirl.sinocraft.sinofoundation.data.provider.language;
 import games.moegirl.sinocraft.sinocore.api.data.I18nProviderBase;
 import games.moegirl.sinocraft.sinofoundation.block.SFDBlocks;
 import games.moegirl.sinocraft.sinofoundation.item.SFDItems;
-import games.moegirl.sinocraft.sinofoundation.item.SinoSeriesTab;
 import net.minecraft.data.DataGenerator;
 
-public class LanguageProviderENUS extends I18nProviderBase {
-    public LanguageProviderENUS(DataGenerator genIn, String modIdIn, String localeIn) {
+public class SFDLanguageProviderENUS extends I18nProviderBase {
+    public SFDLanguageProviderENUS(DataGenerator genIn, String modIdIn, String localeIn) {
         super(genIn, modIdIn, modIdIn, localeIn);
     }
 

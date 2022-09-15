@@ -9,8 +9,8 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.DeferredRegister;
 
-public class ItemModelProvider extends ItemModelProviderBase {
-    public ItemModelProvider(DataGenerator generator, String modId, ExistingFileHelper exHelper, DeferredRegister<? extends Item> deferredRegister) {
+public class SFDItemModelProvider extends ItemModelProviderBase {
+    public SFDItemModelProvider(DataGenerator generator, String modId, ExistingFileHelper exHelper, DeferredRegister<? extends Item> deferredRegister) {
         super(generator, modId, exHelper, deferredRegister);
     }
 

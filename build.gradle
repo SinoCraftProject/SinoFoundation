@@ -93,7 +93,10 @@ dependencies {
         parchment("org.parchmentmc.data:parchment-1.18.2:2022.08.07@zip")
     }
 
-    modImplementation('com.github.SinoCraftProject:SinoCore:dev-SNAPSHOT') {
+    modCompileOnly('com.github.SinoCraftProject:SinoCore:dev-SNAPSHOT:api') {
+        changing = true
+    }
+    modRuntimeOnly('com.github.SinoCraftProject:SinoCore:dev-SNAPSHOT') {
         changing = true
     }
 }

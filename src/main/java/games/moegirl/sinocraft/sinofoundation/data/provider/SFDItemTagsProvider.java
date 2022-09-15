@@ -8,8 +8,8 @@ import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
-public class ItemTagsProvider extends ItemTagsProviderBase {
-    public ItemTagsProvider(DataGenerator pGenerator, BlockTagsProviderBase blockTags, String modId, @Nullable ExistingFileHelper existingFileHelper) {
+public class SFDItemTagsProvider extends ItemTagsProviderBase {
+    public SFDItemTagsProvider(DataGenerator pGenerator, BlockTagsProviderBase blockTags, String modId, @Nullable ExistingFileHelper existingFileHelper) {
         super(pGenerator, blockTags, modId, existingFileHelper);
     }
 

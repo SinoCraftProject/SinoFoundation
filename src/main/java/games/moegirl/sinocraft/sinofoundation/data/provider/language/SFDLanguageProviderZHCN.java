@@ -6,8 +6,8 @@ import games.moegirl.sinocraft.sinofoundation.item.SFDItems;
 import games.moegirl.sinocraft.sinofoundation.item.SinoSeriesTab;
 import net.minecraft.data.DataGenerator;
 
-public class LanguageProviderZHCN extends I18nProviderBase {
-    public LanguageProviderZHCN(DataGenerator genIn, String modIdIn, String localeIn) {
+public class SFDLanguageProviderZHCN extends I18nProviderBase {
+    public SFDLanguageProviderZHCN(DataGenerator genIn, String modIdIn, String localeIn) {
         super(genIn, modIdIn, modIdIn, localeIn);
     }
 
@@ -25,9 +25,5 @@ public class LanguageProviderZHCN extends I18nProviderBase {
         addCreativeTab(SinoSeriesTab.TOOLS, "华夏系列 | 工具");
         addCreativeTab(SinoSeriesTab.WEAPONS, "华夏系列 | 武器");
         addCreativeTab(SinoSeriesTab.MISC, "华夏系列 | 杂项");
-    }
-
-    protected void addCreativeTab(SinoSeriesTab tab, String value) {
-        add("itemGroup." + tab.getLabel(), value);
     }
 }
