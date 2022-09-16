@@ -32,20 +32,20 @@ loom {
     }
 }
 
+group = 'games.moegirl.sinocraft.sinofoundation' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = 'sinofoundation'
+
 version = '1.18.2-2.0.0'
 if (System.getenv("JITPACK") == "true") {
     version += "-${System.getenv("VERSION")}"
 }
 
 var release = false
-if (release || project.hasProperty("SINOSERIES_RELEASE")) {
+if (release || (project.hasProperty("SINOSERIES_RELEASE") && project.property("SINOSERIES_RELEASE") == 'true')) {
     version += '-release'
 } else {
     version += '-dev'
 }
-
-group = 'games.moegirl.sinocraft.sinofoundation' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = 'sinofoundation'
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
@@ -103,6 +103,8 @@ dependencies {
 
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
+    archiveClassifier.set('')
+
     manifest {
         attributes([
                 "Specification-Title"     : "sinofoundation",
